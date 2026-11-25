@@ -11,7 +11,7 @@ matrixNames={'msc10848','smt','gyro'};
 pList=[5 20];
 tol=1e-5;
 maxIter=2800;
-numTimingRepeats=20;
+numTimingRepeats=100;
 maxSolverSeconds=180;
 seed=2026;
 assert(numTimingRepeats>=1 && fix(numTimingRepeats)==numTimingRepeats, ...
