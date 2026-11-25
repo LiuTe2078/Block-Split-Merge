@@ -12,7 +12,7 @@ pList=[5 10 20];
 gapList=[0.1 0.5 1];
 tol=1e-5;
 maxIter=2800;
-numRuns=10;
+numRuns=100;
 seed=2026;
 assert(numRuns>=1 && numRuns==fix(numRuns),'numRuns must be positive integer.');
 
