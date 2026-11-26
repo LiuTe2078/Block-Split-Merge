@@ -122,7 +122,7 @@ function options=local_method_options(p)
 optsBSM=struct('epsSigma',1e-8);
 optsPower=struct();
 optsLOB=struct();
-optsIRBL=struct('BLSZ',3,'NBLS',11,'SIZINT',1, ...
+optsIRBL=struct('BLSZ',3,'SIZINT',1, ...
     'ENDPT','MON','SIGMA','LE','DISPR',0,'ZERTYP','ML');
 optsJD=struct('blockSize',3,'mmax',45,'mmin',15, ...
     'innerTol',0.15,'innerMaxit',30,'softLocking',false, ...
@@ -130,8 +130,7 @@ optsJD=struct('blockSize',3,'mmax',45,'mmin',15, ...
 optsJD.mmax=max(optsJD.mmax,3*p+12);
 optsJD.mmin=min(optsJD.mmax-optsJD.blockSize, ...
     max(2*p,p+optsJD.blockSize));
-optsCheb=struct('blk',3,'polym',20,'vimax',30, ...
-    'vomax',45,'filter',1,'displ',0);
+optsCheb=struct('blk',3,'polym',20,'vimax',30,'displ',0);
 options={optsBSM,optsPower,optsLOB,optsIRBL,optsJD,optsCheb};
 end
 
@@ -458,7 +457,6 @@ end
 function opts=local_cheb_options(opts,p,Q0,tol,maxIter)
 opts.blk=min(p,opts.blk);
 opts.vimax=max(opts.vimax,p+opts.blk);
-opts.vomax=max(opts.vomax,p+2*opts.blk);
 opts.tol=tol;
 opts.itmax=maxIter;
 opts.v0=Q0;
